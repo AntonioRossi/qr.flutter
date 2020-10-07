@@ -228,7 +228,7 @@ class _QrImageState extends State<QrImage> {
       eyeStyle: widget.eyeStyle,
       dataModuleStyle: widget.dataModuleStyle,
     );
-    var qrImage = painter.toImage(300);
+    var qrImage = painter.toImage(edgeLength);
     _shareableImage.setImage(qrImage);
     return _QrContentView(
       edgeLength: edgeLength,
