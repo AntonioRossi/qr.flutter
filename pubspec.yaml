@@ -13,6 +13,7 @@ dependencies:
   flutter:
     sdk: flutter
   qr: ^1.2.0
+  provider: ^4.3.2
 
 dev_dependencies:
   flutter_test:

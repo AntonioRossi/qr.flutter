@@ -10,8 +10,10 @@ import 'dart:ui' as ui;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
 import 'package:qr/qr.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:qr_flutter/src/sharable_qr_code_image.dart';
 
 import 'qr_painter.dart';
 import 'qr_versions.dart';
@@ -214,6 +216,9 @@ class _QrImageState extends State<QrImage> {
   }
 
   Widget _qrWidget(BuildContext context, ui.Image image, double edgeLength) {
+    var _shareableImage =
+        Provider.of<ShareableQrCodeImage>(context, listen: false);
+
     final painter = QrPainter.withQr(
       qr: _qr,
       color: widget.foregroundColor,
@@ -223,6 +228,8 @@ class _QrImageState extends State<QrImage> {
       eyeStyle: widget.eyeStyle,
       dataModuleStyle: widget.dataModuleStyle,
     );
+    var qrImage = painter.toImage(300);
+    _shareableImage.setImage(qrImage);
     return _QrContentView(
       edgeLength: edgeLength,
       backgroundColor: widget.backgroundColor,
