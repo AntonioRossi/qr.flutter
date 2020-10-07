@@ -9,6 +9,11 @@ class ShareableQrCodeImage with ChangeNotifier {
   /// The image that has been generated
   ui.Image get sharableImage => _sharableImage;
 
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   /// Called in qr_image.dart
   void setImage(Future<ui.Image> futureImage) async {
     _sharableImage = await futureImage;
