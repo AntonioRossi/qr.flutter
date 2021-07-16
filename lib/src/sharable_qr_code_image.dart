@@ -4,10 +4,10 @@ import 'package:flutter/foundation.dart';
 
 /// This class is listenable by a provider
 class ShareableQrCodeImage with ChangeNotifier {
-  late ui.Image _sharableImage;
+  ui.Image? _sharableImage;
 
   /// The image that has been generated
-  ui.Image get sharableImage => _sharableImage;
+  ui.Image? get sharableImage => _sharableImage;
 
   @override
   void dispose() {
